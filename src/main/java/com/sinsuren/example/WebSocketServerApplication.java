@@ -10,18 +10,17 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 @SpringBootApplication
 public class WebSocketServerApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(WebSocketServerApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(WebSocketServerApplication.class, args);
+  }
 }
 
 @Configuration
 @EnableWebSocket
 class WebSocketConfig implements WebSocketConfigurer {
 
-    @Override
-    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(new ClientWebSocketHandler(), "/client-details")
-            .setAllowedOrigins("*");
-    }
+  @Override
+  public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
+    registry.addHandler(new ClientWebSocketHandler(), "/client-details").setAllowedOrigins("*");
+  }
 }
