@@ -1,5 +1,6 @@
 package com.sinsuren.example;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
@@ -19,8 +20,10 @@ public class WebSocketServerApplication {
 @EnableWebSocket
 class WebSocketConfig implements WebSocketConfigurer {
 
+  @Autowired private ClientWebSocketHandler clientWebSocketHandler;
+
   @Override
   public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-    registry.addHandler(new ClientWebSocketHandler(), "/client-details").setAllowedOrigins("*");
+    registry.addHandler(clientWebSocketHandler, "/client-details").setAllowedOrigins("*");
   }
 }

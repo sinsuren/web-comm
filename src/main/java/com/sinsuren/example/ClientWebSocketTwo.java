@@ -1,26 +1,15 @@
 package com.sinsuren.example;
 
-import org.java_websocket.client.WebSocketClient;
-import org.java_websocket.handshake.ServerHandshake;
-
-import java.net.URI;
-
-import org.java_websocket.client.WebSocketClient;
-import org.java_websocket.handshake.ServerHandshake;
-
-import java.net.URI;
-
-import org.java_websocket.client.WebSocketClient;
-import org.java_websocket.handshake.ServerHandshake;
-
 import java.net.URI;
 import java.util.Scanner;
+import org.java_websocket.client.WebSocketClient;
+import org.java_websocket.handshake.ServerHandshake;
 
-public class ClientWebSocket extends WebSocketClient {
+public class ClientWebSocketTwo extends WebSocketClient {
 
     private final String clientId;
 
-    public ClientWebSocket(URI serverUri, String clientId) {
+    public ClientWebSocketTwo(URI serverUri, String clientId) {
         super(serverUri);
         this.clientId = clientId;
     }
@@ -58,7 +47,7 @@ public class ClientWebSocket extends WebSocketClient {
     public static void main(String[] args) {
         try {
             String clientId = args.length > 0 ? args[0] : "client1";
-            ClientWebSocket client = new ClientWebSocket(new URI("ws://localhost:8080/client-details"), clientId);
+            ClientWebSocketTwo client = new ClientWebSocketTwo(new URI("ws://localhost:8081/client-details"), clientId);
             client.connectBlocking();
             client.startMessaging();
         } catch (Exception e) {

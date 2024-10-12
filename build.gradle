@@ -6,7 +6,6 @@ plugins {
 
 group = 'com.sinsuren.example'
 version = '1.0.0'
-sourceCompatibility = '17'
 
 repositories {
     mavenCentral()
@@ -15,6 +14,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
     implementation 'org.java-websocket:Java-WebSocket:1.5.2'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
